@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./componentes/Header";
+import Formulario from "./componentes/Formulario";
 
 import styled from "@emotion/styled";
 
@@ -21,7 +22,7 @@ function App() {
       />
 
       <ContenedorFormulario>
-        
+        <Formulario/>
       </ContenedorFormulario>
     </Contenedor>
   );
