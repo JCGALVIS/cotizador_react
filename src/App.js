@@ -1,6 +1,7 @@
-import React from "react";
+import React, {useState} from "react";
 import Header from "./componentes/Header";
 import Formulario from "./componentes/Formulario";
+import Resumen from "./componentes/Resumen";
 
 import styled from "@emotion/styled";
 
@@ -15,6 +16,18 @@ const ContenedorFormulario = styled.div`
 `;
 
 function App() {
+  //Definir useState del componente
+  const [resumen, guardarResumen] = useState({
+    cotizacion: 0,
+    datos:{
+      marca: '',
+      year: '',
+      plan: ''
+    }
+  });
+
+  const { datos } = resumen;
+
   return (
     <Contenedor>
       <Header 
@@ -22,7 +35,12 @@ function App() {
       />
 
       <ContenedorFormulario>
-        <Formulario/>
+        <Formulario
+          guardarResumen={guardarResumen}
+        />
+        <Resumen
+          datos={datos}
+        />
       </ContenedorFormulario>
     </Contenedor>
   );

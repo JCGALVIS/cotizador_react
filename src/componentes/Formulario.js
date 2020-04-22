@@ -52,7 +52,7 @@ const Error = styled.div`
   margin-bottom: 2rem;
 `;
 
-const Formulario = () => {
+const Formulario = ({guardarResumen}) => {
   //Definie useSatet del componenete
 
   const [datos, guardarDatos] = useState({
@@ -106,6 +106,10 @@ const Formulario = () => {
     resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
 
     //Total
+    guardarResumen({
+      cotizacion: resultado,
+      datos
+    });
 
   };
 
