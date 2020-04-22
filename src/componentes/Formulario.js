@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styled from "@emotion/styled";
+import PropTypes from 'prop-types';
 
 import {obtenerDiferenciaYera, calcularMarca, obtenerPlan} from '../helper';
 
@@ -114,7 +115,7 @@ const Formulario = ({guardarResumen, guardarCargando}) => {
 
       //Pasa la información al componente principal
       guardarResumen({
-        cotizacion: resultado,
+        cotizacion: Number(resultado),
         datos
       });
     }, 3000);
@@ -184,5 +185,10 @@ const Formulario = ({guardarResumen, guardarCargando}) => {
     </form>
   );
 };
+
+Formulario.propTypes = {
+  guardarResumen: PropTypes.func.isRequired,
+  guardarCargando: PropTypes.func.isRequired
+}
 
 export default Formulario;
