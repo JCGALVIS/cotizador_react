@@ -2,8 +2,10 @@ import React, {useState} from "react";
 import Header from "./componentes/Header";
 import Formulario from "./componentes/Formulario";
 import Resumen from "./componentes/Resumen";
+import Resiltado from "./componentes/Resultado";
 
 import styled from "@emotion/styled";
+import Resultado from "./componentes/Resultado";
 
 const Contenedor = styled.div`
   max-width: 600px;
@@ -26,7 +28,7 @@ function App() {
     }
   });
 
-  const { datos } = resumen;
+  const {cotizacion, datos } = resumen;
 
   return (
     <Contenedor>
@@ -38,8 +40,13 @@ function App() {
         <Formulario
           guardarResumen={guardarResumen}
         />
+
         <Resumen
           datos={datos}
+        />
+
+        <Resultado
+          cotizacion={cotizacion}
         />
       </ContenedorFormulario>
     </Contenedor>
