@@ -52,7 +52,7 @@ const Error = styled.div`
   margin-bottom: 2rem;
 `;
 
-const Formulario = ({guardarResumen}) => {
+const Formulario = ({guardarResumen, guardarCargando}) => {
   //Definie useSatet del componenete
 
   const [datos, guardarDatos] = useState({
@@ -105,11 +105,19 @@ const Formulario = ({guardarResumen}) => {
     
     resultado = parseFloat(incrementoPlan * resultado).toFixed(2);
 
-    //Total
-    guardarResumen({
-      cotizacion: resultado,
-      datos
-    });
+    //Total    
+    guardarCargando(true);
+
+    setTimeout(() => {
+      //Elimina el Spinner
+      guardarCargando(false);
+
+      //Pasa la información al componente principal
+      guardarResumen({
+        cotizacion: resultado,
+        datos
+      });
+    }, 3000);
 
   };
 
